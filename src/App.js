@@ -1,6 +1,6 @@
 import React from 'react';
 import TodoList from './TodoList';
-import Courses from './Courses';
+import Todos from './Todos';
 
 class App extends React.Component {
         render() {
@@ -8,6 +8,7 @@ class App extends React.Component {
                 <div>
                     <h1>TodoList</h1>
                     <TodoList />
+                    <Todos />
                 </div>
             );
         }
