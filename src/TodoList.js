@@ -9,42 +9,32 @@ class TodoList extends React.Component {
       super();
 
       this.state = {
-          message: "There are no scores yet.",
           todos: [
-              { title: "Cleaning", score: 1 },
-              { title: "Walking", score: 1 },
-              { title: "Shopping", score: 1 }
+              { title: "Making", count: 1 },
+              { title: "Walking", count: 1 },
+              { title: "Shopping", count: 1 }
           ]
       };
   }
 
   onAddTodo(username){
-      var newTodo = { title: username, score: 1 };
+      var newTodo = { title: username, count: 1 };
       var newTodos = this.state.todos.concat(newTodo);
       this.setState({
           todos: newTodos
       });
   }
 
-
-  onChangeScore(title, score){
-     this.setState({
-         message: title + " scored and has " + score + " points."
-     });
-   }
-
    renderTodo(todo){
         return <Todo
             title={todo.title}
-            score={todo.score}
-            onChange={this.onChangeScore.bind(this)}
             />;
     }
 
     totalCount(){
       return this.state.todos.reduce(
         function(prev, next) {
-          return prev + next.score;
+          return prev + next.count;
       }, 0);
     }
 
